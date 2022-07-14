@@ -1,0 +1,64 @@
+query GetRecipes {
+  recipes {
+    id
+    title
+    author {
+      email
+    }
+    ratings {
+      value
+    }
+  }
+}
+
+query GetRecipe($id: Int!) {
+  recipe(recipeId: $id) {
+    id
+    title
+    description
+    ratings {
+      value
+      user {
+        nickname
+      }
+      date
+    }
+    author {
+      id
+      nickname
+      email
+    }
+  }
+}
+
+mutation AddRecipe($title: String!, $description: String!) {
+  addRecipe(recipe: {
+    title: $title,
+    description: $description
+  }) {
+    id
+    title
+    description
+    ratings {
+      value
+    }
+    author {
+      nickname
+    }
+  }
+}
+
+mutation RateRecipe($id: Int!, $rating: Int!) {
+  rate(rate: {
+    recipeId: $id
+    value: $rating
+  }) {
+    id
+    ratings {
+      value
+      user {
+        email
+      }
+    }
+  }
+}

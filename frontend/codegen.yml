@@ -1,0 +1,38 @@
+schema: http://localhost:4000/graphql
+documents: "src/graphql/**/*.gql"
+generates:
+  ./src/generated/graphql.ts:
+    plugins:
+      - add:
+          content: "// This is auto generated code. DO NOT EDIT!"
+      - add:
+          content: "/* eslint-disable */"
+      - typescript
+      - typescript-operations
+      - typed-document-node
+      - named-operations-object
+    config:
+      withHooks: true
+      vueCompositionApiImportFrom: '@vue/composition-api'
+      vueApolloComposableImportFrom: '@vue/apollo-composable'
+      useTypeImports: true
+
+# overwrite: true
+# schema: http://localhost:4000/graphql
+# documents: "src/graphql/**/*.gql"
+# generates:
+#   src/generated/graphql.ts:
+#     config:
+#       withHooks: true
+#       vueCompositionApiImportFrom: '@vue/composition-api'
+#       vueApolloComposableImportFrom: '@vue/apollo-composable'
+#       useTypeImports: true
+#     plugins:
+#       - add:
+#           content: "// This is auto generated code. DO NOT EDIT!"
+#       - add:
+#           content: "/* eslint-disable */"
+#       - typescript
+#       - typescript-operations
+#       - named-operations-object
+#       - typescript-vue-apollo
