@@ -1,5 +1,21 @@
 # Fullstack example using TypeORM and TypeGraphQL
 
+
+## Start backend
+
+```
+cd backend
+yarn install
+yarn start
+```
+## Start frontend
+
+```
+cd frontend
+yarn install
+yarn serve
+```
+
 ## Database
 - There is no need to setup an extra database since we use an sqlite file here.
 
